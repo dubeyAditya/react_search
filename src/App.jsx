@@ -1,17 +1,11 @@
 import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit,faBars } from '@fortawesome/free-solid-svg-icons'
-import Style, { AppWrpper, Header } from './styled';
+import Style, { AppWrpper } from './App.styles';
+import  FlightSearch from "./containers/FlightSearch";
 const App = () => {
     return (
         <AppWrpper>
-            
-            <Header > 
-            <div><FontAwesomeIcon icon={faBars} /> </div>
-            <div>  Hello React App</div>  
-            <div> <FontAwesomeIcon icon={faEdit} /> </div>
-            </Header>
-            <Style/>
+            <FlightSearch />
+            <Style />
         </AppWrpper>)
 }
 
