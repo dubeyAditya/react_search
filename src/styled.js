@@ -11,5 +11,10 @@ const Style = createGlobalStyle`
    height: 97vh;
 }
 `
+export const Header = styled.header`
+display:flex;
+justify-content: space-between;
+`
+
 export default Style;
 

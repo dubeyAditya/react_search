@@ -1,9 +1,16 @@
 import React from "react";
-import Style, { AppWrpper } from './styled';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit,faBars } from '@fortawesome/free-solid-svg-icons'
+import Style, { AppWrpper, Header } from './styled';
 const App = () => {
     return (
         <AppWrpper>
-            <div> Hello React App </div>
+            
+            <Header > 
+            <div><FontAwesomeIcon icon={faBars} /> </div>
+            <div>  Hello React App</div>  
+            <div> <FontAwesomeIcon icon={faEdit} /> </div>
+            </Header>
             <Style/>
         </AppWrpper>)
 }
