@@ -5,7 +5,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import Header from '../../common/Header';
 import TabList from '../../common/TabList/TabList'; // Tab Factory
 import SearchForm from '../../components/SearchForm';
-import Empty from '../../components/Empty/Empty';
+import Empty from '../../common/Empty/Empty';
 
 class FormContainer extends PureComponent {
   constructor(props) {

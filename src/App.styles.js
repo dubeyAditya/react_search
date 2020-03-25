@@ -7,6 +7,8 @@ export const AppWrpper = styled.div`
 const Style = createGlobalStyle`
  body, #root {
    height: 97vh;
+   font-family: "Google Sans", Roboto, arial, sans-serif;
+   margin: 0;
 }
 
 .FormContainerWrapper,
@@ -17,7 +19,7 @@ const Style = createGlobalStyle`
   flex-direction:column;
   & main
   {
-    flex-grow:1
+    flex-grow: 1;
   }
 }
 `
