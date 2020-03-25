@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-//import { Test } from './FlightDetails.styles';
+import { FlightCard } from './FlightDetails.styles';
 
 const FlightDetails = (props) => (
-  <div className="FlightDetailsWrapper">
-    Test content
-  </div>
+  <FlightCard>
+   Test Card {props.flight}
+  </FlightCard>
 );
 
 FlightDetails.propTypes = {
-  // bla: PropTypes.string,
+  // flight: PropTypes.object,
 };
 
 FlightDetails.defaultProps = {
