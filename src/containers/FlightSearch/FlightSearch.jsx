@@ -10,14 +10,16 @@ const FlightSearch = () => {
 
   const [state, dispatch] = useReducer(reducer, iniitalState);
 
-  const { filterType, searchQuery, selectedView } = state;
+  const { filterType, form, selectedView } = state;
 
+  const handleBackClick = () =>  dispatch({type:'FORM'});
+  
   const renderContent = () => {
     switch (selectedView) {
       case "form":
         return <Form></Form>
       case "result":
-        return <SearchResult query={searchQuery}></SearchResult>
+        return <SearchResult onBack={handleBackClick} query={form}></SearchResult>
       case "filter":
         return <Filter filterType={filterType}></Filter>
     }

@@ -1,8 +1,10 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faBars } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import Header from '../../common/Header';
+import FlightList from '../../components/FlightList';
+import FilterButtons from '../../components/FilterButtons';
 
 class SearchContainer extends PureComponent { 
   constructor(props) {
@@ -13,35 +15,35 @@ class SearchContainer extends PureComponent {
     };
   }
 
-  componentWillMount() {
-    console.log('SearchContainer will mount');
+  componentDidMount() {
+    console.log('SearchContainer will mount', this.props.form);
   }
 
   componentWillUpdate(nextProps, nextState){
     console.log('SearchContainer will update', nextProps, nextState);
   }
 
- 
-
   render () {
-    if (this.state.hasError) {
-      return <h1>Something went wrong.</h1>;
-    }
     return (
       <div className="SearchContainerWrapper">
+        {JSON.stringify(this.props.from)}
         <Header >
-          <div> <FontAwesomeIcon icon={faBars} /> </div>
+          <div className='back-button'> <FontAwesomeIcon onClick={this.props.onBack} icon={faArrowLeft} /> </div>
           <div> Place Details </div>
-          <div> <FontAwesomeIcon icon={faEdit} /> </div>
+          <div className='edit-button'> <FontAwesomeIcon icon={faEdit} /> </div>
         </Header>
-        <main></main>
+        <main>
+         <FlightList />
+         <FilterButtons />
+        </main>
       </div>
     );
   }
 }
 
 SearchContainer.propTypes = {
-  // bla: PropTypes.string,
+  form: PropTypes.object,
+  onBack: PropTypes.func
 };
 
 SearchContainer.defaultProps = {
