@@ -6,9 +6,15 @@ export const HeaderWrapper = styled.header`
     color:#B9F3FF;
     padding: 1rem;
     justify-content: space-between;
+    font-size:1.5rem;
 
-    @media (min-width: 600px) {
-        &:nth-child(2){
+    @media (min-width: 600px) { 
+       
+        & {
+            justify-content: start;
+        }
+
+        & :nth-child(2){
             margin-left:1rem;
         }
 }
