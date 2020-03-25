@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-//import { Test } from './Input.styles';
+import { InputWrapper } from './Input.styles';
 
 const Input = (props) => (
   <div className="InputWrapper">
-    Test content
+     <InputWrapper {...props} />
   </div>
 );
 
