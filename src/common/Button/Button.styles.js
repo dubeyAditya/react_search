@@ -7,4 +7,5 @@ export const ButtonWrapper = styled.button`
    outline:none;
    width: ${prop=> prop.size === 'large' ? '100%' : 'inherit' };
    font-size: 1rem;
+   border: 1px solid antiquewhite;
 `;
