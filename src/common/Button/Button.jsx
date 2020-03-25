@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ButtonWrapper } from './Button.styles';
 
-const Button = ({size, color,children}) => (
+const Button = (props) => (
   <div className="ButtonWrapper">
-     <ButtonWrapper size={size} color={color}>{children}</ButtonWrapper>
+     <ButtonWrapper {...props}>{props.children}</ButtonWrapper>
   </div>
 );
 

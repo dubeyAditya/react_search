@@ -11,6 +11,10 @@ const Style = createGlobalStyle`
    margin: 0;
 }
 
+.FlightSearchWrapper{
+  height:100%;
+}
+
 .FormContainerWrapper,
 .SearchContainerWrapper,
 .FilterContainerWrapper
@@ -22,6 +26,12 @@ const Style = createGlobalStyle`
     flex-grow: 1;
   }
 }
+
+.back-button,.edit-button{
+  cursor:pointer;
+}
+
+
 `
 
 export default Style;
