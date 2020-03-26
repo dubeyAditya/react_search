@@ -6,6 +6,7 @@ export const InputWrapper = styled.input`
   width: -moz-available;
   border: 1px solid #d9d9d9;
   border-radius: 4px;
+  font-size: 1rem;
 
   & :focus{
     border-color: #B9F3FF;
