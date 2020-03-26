@@ -37,9 +37,9 @@ class SearchContainer extends PureComponent {
   }
 
   getFlightList() {
-    const { departure, dest } = this.props.form;
+    const { departure, dest, deptDate } = this.props.form;
     const flights = this.state.flights;
-    return searchFlightByDestination(flights, departure, dest);
+    return searchFlightByDestination(flights, departure, dest, deptDate);
   }
 
   render() {
@@ -62,7 +62,7 @@ class SearchContainer extends PureComponent {
         </Header>
         <main>
           <FlightList list={getFlightList} />
-          <FilterButtons />
+          <FilterButtons  onFilter={onBack}/>
         </main>
       </div>
     );
