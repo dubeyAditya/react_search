@@ -350,7 +350,21 @@ export default [{
   departs: "8:00 AM",
   arrives: "10:30 AM",
   doj: getDate(2),
-  seats: 65
+  flightClass: [{
+    title: 'Baisc',
+    fare: '125',
+    seats: 7
+  },
+  {
+    title: 'Main',
+    fare: '225',
+    seats: 4
+  },
+  {
+    title: 'Economy',
+    fare: '325',
+    seats: 8
+  }]
 },
 {
   name: "AI-115",
