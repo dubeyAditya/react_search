@@ -1,6 +1,12 @@
-// import styled from 'styled-components';
+import styled from 'styled-components';
 
-// export const Test = styled.div`
-//  display: flex;
-// `;
-//
+export const ListWrapper = styled.div`
+ display: flex;
+ flex-direction: column;
+ padding: 1rem;
+ & > div{
+     flex: 2rem;
+ } 
+
+
+`;

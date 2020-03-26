@@ -27,4 +27,5 @@ export const Button = styled.button`
     padding: 0.5rem;
     border: 1px solid #e2e2e2;
     box-shadow: 2px 2px 3px #e8e8e8;
+    cursor:pointer;
 `
