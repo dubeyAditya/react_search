@@ -4,13 +4,13 @@ import { FlightListWrapper } from './FlightList.styles';
 import Empty from '../../common/Empty/Empty';
 import FlightDetails from '../FlightDetails';
 
-const FlightList = ({flights}) => {
+const FlightList = ({list}) => {
  
  const renderFlightDetails = () => {
-  if(!flights.length){
+  if(!list.length){
     return <Empty />
   }
-  return flights.map(flight => <FlightDetails flight={flight} />)
+  return list.map((flight, index) => <FlightDetails key={index} flight={flight} />)
  } 
  
  return <div className="FlightListWrapper">
@@ -21,11 +21,11 @@ const FlightList = ({flights}) => {
 };
 
 FlightList.propTypes = {
-  flights: PropTypes.array
+  list: PropTypes.array
 };
 
 FlightList.defaultProps = {
-  flights: [1],
+  list: [],
 };
 
 export default FlightList;

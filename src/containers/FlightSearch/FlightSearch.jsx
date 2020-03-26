@@ -19,7 +19,7 @@ const FlightSearch = () => {
       case "form":
         return <Form></Form>
       case "result":
-        return <SearchResult onBack={handleBackClick} query={form}></SearchResult>
+        return <SearchResult onBack={handleBackClick} form={form}></SearchResult>
       case "filter":
         return <Filter filterType={filterType}></Filter>
     }
