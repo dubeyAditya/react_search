@@ -12,16 +12,27 @@ const FlightSearch = () => {
 
   const { filterType, form, selectedView } = state;
 
-  const handleBackClick = () =>  dispatch({type:'FORM'});
-  
+  const handleSearchBackClick = (name) => {
+    if (name) { // Load Filter on Filter Click
+      dispatch({ type: 'FILTER', payload: { filterType: name } })
+    }
+    else {
+      //load From
+      dispatch({ type: 'FORM' });
+    }
+  }
+
+  const handleFilterBackClick = () => dispatch({ type: 'SEARCH', payload: { form } }); // Load Search
+
+
   const renderContent = () => {
     switch (selectedView) {
       case "form":
         return <Form></Form>
       case "result":
-        return <SearchResult onBack={handleBackClick} form={form}></SearchResult>
+        return <SearchResult onBack={handleSearchBackClick} form={form}></SearchResult>
       case "filter":
-        return <Filter filterType={filterType}></Filter>
+        return <Filter onBack={handleFilterBackClick} filterType={filterType}></Filter>
     }
   }
 

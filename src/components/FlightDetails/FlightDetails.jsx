@@ -9,8 +9,8 @@ const FlightDetails = ({ flight }) => {
   const { name, departs, arrives, flightClass , origin, dest } = flight;
 
 
-  const renderClassBox = (item) => (
-      <ClassBox>
+  const renderClassBox = (item, index) => (
+      <ClassBox key={`${item.title}_${index}`}>
         <div>{`$${item.fare}`}</div>
         <div>{item.title}</div>
      </ClassBox>

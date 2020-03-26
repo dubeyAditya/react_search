@@ -24,6 +24,11 @@ export const DateSelectionWrapper = styled.div`
    grid-gap: 0.5rem;
    width:100%;
    margin-bottom: 0.5rem;
+
+   @media (max-width: 400px) {
+    grid-template-columns: repeat(1,1fr);
+   }
+
 `
 
 export const FormItemWrapper = styled.div`

@@ -12,7 +12,7 @@ export const iniitalState = {
         flightClass: '',
     },
     selectedView: 'form',
-    filterType: 'sort'
+    filterType: 'Sort By'
 }
 
 export const reducer = function (state = iniitalState, action) {

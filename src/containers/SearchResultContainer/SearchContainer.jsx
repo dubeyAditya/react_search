@@ -49,7 +49,7 @@ class SearchContainer extends PureComponent {
     return (
       <div className="SearchContainerWrapper">
         <Header >
-          <div className='back-button'> <FontAwesomeIcon onClick={onBack} icon={faArrowLeft} /> </div>
+          <div className='back-button'> <FontAwesomeIcon onClick={()=>onBack()} icon={faArrowLeft} /> </div>
           <div>
             <TravelDetailsWrapper>
               <div> {departure} </div>
