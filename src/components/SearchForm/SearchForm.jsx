@@ -79,7 +79,7 @@ const SearchForm = (props) => {
 
   const isValidCity = () => {
     let validate = true;
-    const { dest, departure } = form;
+    const { dest, departure, traveler, flightClass } = form;
     if (!departure) {
       alert("Please Select Departure City !");
       validate = false;
@@ -87,6 +87,16 @@ const SearchForm = (props) => {
 
     if (!dest) {
       alert("Please Select Destination City !");
+      validate = false;
+    }
+
+    if (!traveler) {
+      alert("Please Enter Passangers !");
+      validate = false;
+    }
+
+    if (!flightClass) {
+      alert("Please Enter Flight Class !");
       validate = false;
     }
     return validate;
@@ -113,8 +123,10 @@ const SearchForm = (props) => {
   }
 
   const handleSubmit = () => {
-    if (!isEmpty(form) && isValidCity() && (isDepartValid() || isReturnValid()))
-      dispatch({ type: 'SEARCH', payload: { form } });
+    if (!isEmpty(form)) {
+      if (isValidCity() && (isDepartValid() || isReturnValid()))
+        dispatch({ type: 'SEARCH', payload: { form } });
+    }
     else
       alert("Plese input mandatory fields.");
   }
@@ -151,7 +163,7 @@ const SearchForm = (props) => {
         </FormItemWrapper>
       </DateSelectionWrapper>
 
-      <Button size='large' onClick={handleSubmit} color='green'>Search</Button>
+      <Button size='large' onClick={handleSubmit} color='green'>Search flights</Button>
     </SearchFormWrapper>
   </div>
 };
