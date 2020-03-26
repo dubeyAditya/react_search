@@ -1,40 +1,68 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import Header from '../../common/Header';
 import FlightList from '../../components/FlightList';
 import FilterButtons from '../../components/FilterButtons';
+import { TravelDetailsWrapper, DateAndTravelersWrapper } from './SearchContainer.styles';
+import flightsData from '../../../public/json/flight.details';
+import { searchFlightByDestination } from '../../utility/search.utility';
 
-class SearchContainer extends PureComponent { 
+class SearchContainer extends PureComponent {
   constructor(props) {
     super(props);
 
     this.state = {
-      hasError: false,
+      flights: flightsData,
     };
+    
+    this.renderDate = this.renderDate.bind(this);
+    this.formatDate =  this.formatDate.bind(this);
+    this.getFlightList =  this.getFlightList(this);
   }
 
-  componentDidMount() {
-    console.log('SearchContainer will mount', this.props.form);
+  renderDate() {
+    const { deptDate, returnDate, traveler } = this.props.form;
+    const { formatDate } = this;
+    const journeDate = returnDate
+      ? `${formatDate(deptDate)}-${formatDate(returnDate)}`
+      : `${formatDate(deptDate)}`;
+    return `${journeDate} | ${traveler} Adult(s)`;
   }
 
-  componentWillUpdate(nextProps, nextState){
-    console.log('SearchContainer will update', nextProps, nextState);
+  formatDate(journeDate) {
+    const date = new Date(journeDate).toDateString();
+    return date.split(" ").filter((s, i) => i == 1 || i == 2).join(" ");
   }
 
-  render () {
+  getFlightList() {
+    const { departure, dest } = this.props.form;
+    const flights = this.state.flights;
+    return searchFlightByDestination(flights, departure, dest);
+  }
+
+  render() {
+    const { getFlightList, renderDate } = this;
+    const { onBack, form } = this.props;
+    const { dest, departure } = form;
     return (
       <div className="SearchContainerWrapper">
-        {JSON.stringify(this.props.from)}
         <Header >
-          <div className='back-button'> <FontAwesomeIcon onClick={this.props.onBack} icon={faArrowLeft} /> </div>
-          <div> Place Details </div>
+          <div className='back-button'> <FontAwesomeIcon onClick={onBack} icon={faArrowLeft} /> </div>
+          <div>
+            <TravelDetailsWrapper>
+              <div> {departure} </div>
+              <div><FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon></div>
+              <div>{dest}</div>
+            </TravelDetailsWrapper>
+            <DateAndTravelersWrapper>{renderDate()}</DateAndTravelersWrapper>
+          </div>
           <div className='edit-button'> <FontAwesomeIcon icon={faEdit} /> </div>
         </Header>
         <main>
-         <FlightList />
-         <FilterButtons />
+          <FlightList list={getFlightList} />
+          <FilterButtons />
         </main>
       </div>
     );
