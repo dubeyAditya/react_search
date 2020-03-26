@@ -21,9 +21,10 @@ export const FloatingButton = styled.div`
 `;
 
 export const Button = styled.button`
-    background-color:#ffff;
-    color: #A2CBD4;
+    background-color:#f2f2f2;
+    color: #0159A1;
     flex-basis: 6rem;
     padding: 0.5rem;
     border: 1px solid #e2e2e2;
+    box-shadow: 2px 2px 3px #e8e8e8;
 `
